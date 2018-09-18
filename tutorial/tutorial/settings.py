@@ -9,14 +9,14 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'tutorial'
+BOT_NAME = 'habr_parser'
 
 SPIDER_MODULES = ['tutorial.spiders']
 NEWSPIDER_MODULE = 'tutorial.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'tutorial (+http://www.yourdomain.com)'
+USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -64,14 +64,14 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'tutorial.pipelines.TutorialPipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'tutorial.pipelines.JsonWriterPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
-#AUTOTHROTTLE_ENABLED = True
-# The initial download delay
+AUTOTHROTTLE_ENABLED = True
+# The initial download delayITEM_PIPELINES
 #AUTOTHROTTLE_START_DELAY = 5
 # The maximum download delay to be set in case of high latencies
 #AUTOTHROTTLE_MAX_DELAY = 60
